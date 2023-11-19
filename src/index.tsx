@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
-import Bookings from "./Bookings";
+import Bookings from "./pages/Bookings";
 import reportWebVitals from "./reportWebVitals";
-import BookingsContextProvider from "./BookingsContextProvider";
+import BookingsContextProvider from "./contexts/BookingsContextProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
