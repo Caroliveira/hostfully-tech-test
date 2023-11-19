@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './Bookings.css';
+import './Bookings.scss';
 
 const Bookings = () => {
   return (
