@@ -1,5 +1,7 @@
 .bookings {
   background-color: whitesmoke;
+  min-height: 100vh;
+  
   &__header {
     background-color: brown;
     padding: 16px 48px;
@@ -13,6 +15,22 @@
       font-size: 20px;
       font-weight: 500;
       color: whitesmoke;
+    }
+  }
+  &__content {
+    margin: 0 auto;
+    padding: 0 48px;
+    max-width: 1920px;
+    width: 100%;
+
+    @media (max-width: 1080px) {
+      padding: 0 16px;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 32px;
+      color: black;
     }
   }
 }

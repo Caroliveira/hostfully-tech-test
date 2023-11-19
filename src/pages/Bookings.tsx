@@ -6,6 +6,9 @@ const Bookings = () => {
       <header className="bookings__header">
         <h1>Hostfully Tech Test</h1>
       </header>
+      <main className="bookings__content">
+        <h2>Bookings</h2>
+      </main>
     </div>
   );
 };
