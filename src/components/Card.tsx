@@ -1,3 +1,5 @@
+import pencil from '../svgs/pencil.svg';
+import crossCircled from '../svgs/cross-circled.svg';
 import "./Card.scss";
 
 const Card = () => {
@@ -9,8 +11,8 @@ const Card = () => {
         <span>Canceled</span>
       </div>
       <div>
-        <span>edit</span>
-        <span>cancel</span>
+        <span><img src={pencil} alt="" /> Change dates</span>
+        <span><img src={crossCircled} alt="" /> Cancel your booking</span>
       </div>
     </div>
   );
