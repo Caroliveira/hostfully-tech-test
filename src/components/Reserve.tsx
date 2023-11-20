@@ -1,25 +1,16 @@
 import useBookingsContext, { BookingType } from "../contexts/BookingsContext";
 import plusCircled from "../svgs/plus-circled.svg";
+import { getReservationData } from "./Reserve.helper";
 import "./Reserve.scss";
 
 const Reserve = () => {
   const { setBookings } = useBookingsContext();
+
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-    const formData = new FormData(evt.currentTarget);
-
-    const city = formData.get("city")?.toString();
-    const checkIn = formData.get("checkIn")?.toString();
-    const checkOut = formData.get("checkOut")?.toString();
-
-    if (!city || !checkIn || !checkOut) return;
-    const newReservation: BookingType = {
-      city,
-      checkIn,
-      checkOut,
-      status: "Confirmed",
-    };
+    const newReservation = getReservationData(evt);
+    if (!newReservation) return;
     setBookings((prev: BookingType[]) => [...prev, newReservation]);
+    evt.currentTarget.reset();
   };
 
   return (
