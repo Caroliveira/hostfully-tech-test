@@ -5,16 +5,23 @@
   padding: 16px;
   margin-top: 16px;
 
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
+
   &__content {
     flex: 1;
     display: flex;
     flex-direction: column;
+
     &--history {
       @extend .card__content;
       color: darkgray;
     }
+
     &__status {
       font-size: 16px;
+
       &--active {
         @extend .card__content__status;
         color: darkolivegreen;
@@ -27,7 +34,14 @@
     flex-direction: column;
     gap: 8px;
     justify-content: center;
+
+    @media (max-width: 1080px) {
+      flex-direction: row;
+      margin-top: 16px;
+    }
+
     button {
+      flex: 1;
       border: 1px solid darkolivegreen;
       border-radius: 50px;
       padding: 4px 12px;
@@ -36,12 +50,15 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+
       &:nth-child(2) {
         border-color: brown;
       }
+
       &:hover {
         box-shadow: 0 2px 4px 0px lightgray;
       }
+
       img {
         margin-right: 4px;
       }

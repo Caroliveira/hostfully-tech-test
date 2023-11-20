@@ -33,7 +33,7 @@ const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
             <img src={pencil} alt="" /> Change dates
           </button>
           <button type="button" onClick={onCancel}>
-            <img src={crossCircled} alt="" /> Cancel your booking
+            <img src={crossCircled} alt="" /> Cancel reservation
           </button>
         </div>
       )}
