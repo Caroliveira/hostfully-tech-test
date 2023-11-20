@@ -12,13 +12,8 @@ type BookingsContextType = {
   setHistory: (history: BookingType[]) => void;
 };
 
-const defaultContextValue: BookingsContextType = {
-  history: [],
-  setHistory: () => {},
-};
-
 export const BookingsContext =
-  createContext<BookingsContextType>(defaultContextValue);
+  createContext<BookingsContextType | null>(null);
 
 const useBookingsContext = () => {
   const context = useContext(BookingsContext);
