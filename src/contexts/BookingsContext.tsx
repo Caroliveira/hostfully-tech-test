@@ -8,14 +8,20 @@ export type BookingType = {
 };
 
 type BookingsContextType = {
-  history: BookingType[];
-  setHistory: (history: BookingType[]) => void;
+  bookings: BookingType[];
+  setBookings: React.Dispatch<React.SetStateAction<BookingType[]>>
 };
 
-export const BookingsContext =
-  createContext<BookingsContextType | null>(null);
+const defaultBookingsContext = {
+  bookings: [],
+  setBookings: () => {},
+};
 
-const useBookingsContext = () => {
+export const BookingsContext = createContext<BookingsContextType>(
+  defaultBookingsContext
+);
+
+const useBookingsContext = (): BookingsContextType => {
   const context = useContext(BookingsContext);
   return context;
 };

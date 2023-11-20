@@ -13,7 +13,7 @@ const Bookings = () => {
       <main className="bookings__content">
         <h2>Bookings</h2>
         <Reserve />
-        {context?.history.map((h) => <Card {...h} />)}
+        {context?.bookings.map((booking) => <Card {...booking} />)}
       </main>
     </div>
   );

@@ -3,10 +3,10 @@ import { BookingType, BookingsContext } from "./BookingsContext";
 import historyMock from "../mocks/historyMock";
 
 const BookingsContextProvider = ({ children }: { children: ReactNode}) => {
-  const [history, setHistory] = useState<BookingType[]>(historyMock);
+  const [bookings, setBookings] = useState<BookingType[]>(historyMock);
 
   return (
-    <BookingsContext.Provider value={{ history, setHistory }}>
+    <BookingsContext.Provider value={{ bookings, setBookings }}>
       {children}
     </BookingsContext.Provider>
   );
