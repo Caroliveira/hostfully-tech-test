@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import { BookingType } from "../contexts/BookingsContext";
 
 export const getReservationData = (evt: React.FormEvent<HTMLFormElement>): BookingType | null => {
@@ -24,11 +23,4 @@ export const sortBookings = (bookings: BookingType[]) => {
     const dateB = new Date(b.checkIn);
     return dateB.getTime() - dateA.getTime();
   });
-};
-
-export const getMinCheckoutDate = (checkIn?: string) => {
-  const today = new Date();
-  const date = checkIn? new Date(checkIn) : today;
-  date.setDate(date.getDate() + 1);
-  return format(date, 'yyyy-MM-dd');
 };
