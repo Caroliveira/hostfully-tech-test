@@ -1,6 +1,6 @@
 import useBookingsContext, { BookingType } from "../contexts/BookingsContext";
 import plusCircled from "../svgs/plus-circled.svg";
-import { getReservationData } from "./Reserve.helper";
+import { getReservationData, sortBookings } from "./Reserve.helper";
 import "./Reserve.scss";
 
 const Reserve = () => {
@@ -9,7 +9,7 @@ const Reserve = () => {
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     const newReservation = getReservationData(evt);
     if (!newReservation) return;
-    setBookings((prev: BookingType[]) => [...prev, newReservation]);
+    setBookings((prev: BookingType[]) => sortBookings([...prev, newReservation]));
     evt.currentTarget.reset();
   };
 
