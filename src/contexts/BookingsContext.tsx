@@ -1,10 +1,12 @@
 import { createContext, useContext } from "react";
 
+type BookingStatus = "Completed" | "Canceled" | "Confirmed";
+
 export type BookingType = {
   city: string;
   checkIn: string;
   checkOut: string;
-  status: string;
+  status: BookingStatus;
 };
 
 type BookingsContextType = {

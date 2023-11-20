@@ -1,4 +1,6 @@
-const historyMock = [
+import { BookingType } from "../contexts/BookingsContext";
+
+const historyMock: BookingType[] = [
     {
         city: 'São Paulo',
         checkIn: '05-05-2020',

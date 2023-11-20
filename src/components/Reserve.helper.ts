@@ -1,6 +1,6 @@
 import { BookingType } from "../contexts/BookingsContext";
 
-export const getReservationData = (evt: React.FormEvent<HTMLFormElement>) => {
+export const getReservationData = (evt: React.FormEvent<HTMLFormElement>): BookingType | null => {
   evt.preventDefault();
   const formData = new FormData(evt.currentTarget);
 
