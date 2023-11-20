@@ -1,13 +1,20 @@
 import { createContext, useContext } from "react";
 
+export type BookingType = {
+  city: string;
+  checkIn: string;
+  checkOut: string;
+  status: string;
+};
+
 type BookingsContextType = {
-  test: string;
-  setTest: (test: string) => void;
+  history: BookingType[];
+  setHistory: (history: BookingType[]) => void;
 };
 
 const defaultContextValue: BookingsContextType = {
-  test: "",
-  setTest: () => {},
+  history: [],
+  setHistory: () => {},
 };
 
 export const BookingsContext =

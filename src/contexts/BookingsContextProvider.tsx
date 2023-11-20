@@ -1,11 +1,11 @@
 import { ReactNode, useState } from "react";
-import { BookingsContext } from "./BookingsContext";
+import { BookingType, BookingsContext } from "./BookingsContext";
 
 const BookingsContextProvider = ({ children }: { children: ReactNode}) => {
-  const [test, setTest] = useState("");
+  const [history, setHistory] = useState<BookingType[]>([]);
 
   return (
-    <BookingsContext.Provider value={{ test, setTest }}>
+    <BookingsContext.Provider value={{ history, setHistory }}>
       {children}
     </BookingsContext.Provider>
   );
