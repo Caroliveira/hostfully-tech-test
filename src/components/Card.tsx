@@ -1,11 +1,20 @@
 import pencil from "../svgs/pencil.svg";
 import crossCircled from "../svgs/cross-circled.svg";
 import "./Card.scss";
-import { BookingType } from "../contexts/BookingsContext";
+import useBookingsContext, { BookingType } from "../contexts/BookingsContext";
 import { monthDayFormat } from "../utils";
 
-const Card = ({ city, checkIn, checkOut, status }: BookingType) => {
+type CardType = { index: number } & BookingType;
+
+const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
+  const {bookings, setBookings} = useBookingsContext();
   const isActive = status === "Confirmed";
+
+  const onCancel = () => {
+    const auxBookings = [...bookings];
+    auxBookings[index].status = "Canceled";
+    setBookings(auxBookings); 
+  }
 
   return (
     <div className="card">
@@ -23,7 +32,7 @@ const Card = ({ city, checkIn, checkOut, status }: BookingType) => {
           <button type="button">
             <img src={pencil} alt="" /> Change dates
           </button>
-          <button type="button">
+          <button type="button" onClick={onCancel}>
             <img src={crossCircled} alt="" /> Cancel your booking
           </button>
         </div>

@@ -13,7 +13,9 @@ const Bookings = () => {
       <main className="bookings__content">
         <h2>Bookings</h2>
         <Reserve />
-        {context?.bookings.map((booking) => <Card {...booking} />)}
+        {context?.bookings.map((booking, index) => (
+          <Card index={index} {...booking} />
+        ))}
       </main>
     </div>
   );
