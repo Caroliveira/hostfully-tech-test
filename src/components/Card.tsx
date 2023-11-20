@@ -9,7 +9,7 @@ const Card = ({ city, checkIn, checkOut, status }: BookingType) => {
   return (
     <div className="card">
       <div className="card__content">
-        <span>Hotel {city} Inn</span>
+        <strong>Hotel {city} Inn</strong>
         <span>
           {monthDayFormat(checkIn)} - {monthDayFormat(checkOut)} * {city}
         </span>

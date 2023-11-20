@@ -5,12 +5,18 @@
   display: flex;
   overflow: hidden;
   gap: 16px;
+  
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
   label {
     flex: 1;
     display: flex;
     flex-direction: column;
     font-size: 16px;
+    width: 100%;
 
     input {
       padding: 8px;
