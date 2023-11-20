@@ -14,7 +14,7 @@ const Bookings = () => {
         <h2>Bookings</h2>
         <Reserve />
         {context?.bookings.map((booking, index) => (
-          <Card index={index} {...booking} />
+          <Card key={index} index={index} {...booking} />
         ))}
       </main>
     </div>
