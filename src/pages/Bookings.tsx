@@ -1,3 +1,4 @@
+import Reserve from "../components/Reserve";
 import Card from "../components/Card";
 import "./Bookings.scss";
 
@@ -9,6 +10,7 @@ const Bookings = () => {
       </header>
       <main className="bookings__content">
         <h2>Bookings</h2>
+        <Reserve />
         <Card />
       </main>
     </div>
