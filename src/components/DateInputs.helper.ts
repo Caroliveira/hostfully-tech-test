@@ -1,8 +1,11 @@
 import { format } from "date-fns";
 
 export const getMinCheckoutDate = (checkIn?: string) => {
-  const today = new Date();
-  const date = checkIn? new Date(checkIn) : today;
+  let date = new Date();
+  if (checkIn) {
+    const [year, month, day] = checkIn.split("-").map(Number);
+    date = new Date(year, month - 1, day);
+  }
   date.setDate(date.getDate() + 1);
-  return format(date, 'yyyy-MM-dd');
+  return format(date, "yyyy-MM-dd");
 };
