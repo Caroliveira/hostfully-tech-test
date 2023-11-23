@@ -41,21 +41,11 @@
 
   &__button {
     font-size: 18px;
-    background-color: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
     padding: 8px 16px;
-    border-radius: 50px;
     height: fit-content;
-    cursor: pointer;
 
     @media (max-width: 1080px) {
       font-size: 16px;
-    }
-
-    &:hover {
-      box-shadow: 0 2px 4px 0px lightgray;
     }
 
     img {
