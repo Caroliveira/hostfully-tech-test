@@ -1,10 +1,8 @@
 import { useState } from "react";
 import useBookingsContext from "../contexts/BookingsContext";
 import plusCircled from "../svgs/plus-circled.svg";
-import {
-  getReservationData,
-} from "../helpers/Reserve.helper";
 import DateInputs from "./DateInputs";
+import { getReservationData } from "../helpers/components.helper";
 
 const Reserve = () => {
   const { validateAndUpsertBooking } = useBookingsContext();

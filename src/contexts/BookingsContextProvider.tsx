@@ -6,7 +6,7 @@ import {
   TOAST_DEFAULT,
   ToastType,
 } from "./BookingsContext";
-import { addBooking, validateBooking } from "../helpers/BookingsContext.helper";
+import { addBooking, validateBooking } from "../helpers/context.helper";
 
 const BookingsContextProvider = ({ children }: { children: ReactNode }) => {
   const [bookings, setBookings] = useState<BookingType[]>(historyMock);

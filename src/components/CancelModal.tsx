@@ -1,7 +1,7 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import crossCircled from "../svgs/cross-circled.svg";
 import useBookingsContext from "../contexts/BookingsContext";
-import { cancelBooking } from "../helpers/CancelModal.helper";
+import { cancelBooking } from "../helpers/components.helper";
 
 type CancelModalType = {
   index: number;
