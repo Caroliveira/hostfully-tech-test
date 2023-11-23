@@ -54,12 +54,14 @@ export const validateBooking = (
   { checkIn, checkOut }: BookingType,
   bookings: BookingType[]
 ) => {
-  const validation = { valid: true, message: "Booking successfully made!" };
-  bookings.forEach((booking) => {
+  for (const booking of bookings) {
+    if (booking.status !== "Confirmed") break;
     if (isDateOverlap(checkIn, checkOut, booking.checkIn, booking.checkOut)) {
-      validation.valid = false;
-      validation.message = "Dates overlap with an existing booking.";
+      return {
+        valid: false,
+        message: "Dates overlap with an existing booking.",
+      };
     }
-  });
-  return validation;
+  }
+  return { valid: true, message: "Booking successfully made!" };
 };

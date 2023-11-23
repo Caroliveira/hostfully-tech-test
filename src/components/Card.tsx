@@ -2,20 +2,16 @@ import pencil from "../svgs/pencil.svg";
 import crossCircled from "../svgs/cross-circled.svg";
 import "./Card.scss";
 import useBookingsContext, { BookingType } from "../contexts/BookingsContext";
-import { format } from "date-fns-tz";
+import { cancelBooking, formatBookingDate } from "./Card.helper";
 
 type CardType = { index: number } & BookingType;
 
 const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
-  const { bookings, setBookings } = useBookingsContext();
+  const { setBookings } = useBookingsContext();
   const isActive = status === "Confirmed";
 
-  const formatDate = (date: string) => format(new Date(date), "LLL dd, yyyy");
-
   const onCancel = () => {
-    const auxBookings = [...bookings];
-    auxBookings[index].status = "Canceled";
-    setBookings(auxBookings);
+    setBookings((prev) => cancelBooking(prev, index));
   };
 
   return (
@@ -23,7 +19,7 @@ const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
       <div className={`card__content${isActive ? "" : "--history"}`}>
         <strong>Hotel {city} Inn</strong>
         <span>
-          {formatDate(checkIn)} - {formatDate(checkOut)} * {city}
+          {formatBookingDate(checkIn)} - {formatBookingDate(checkOut)} * {city}
         </span>
         <span className={`card__content__status${isActive ? "--active" : ""}`}>
           {status}
