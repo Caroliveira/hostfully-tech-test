@@ -1,5 +1,5 @@
 import { format, isBefore } from "date-fns";
-import { getMinCheckoutDate } from "./DateInputs.helper";
+import { getMinCheckoutDate } from "../helpers/DateInputs.helper";
 
 type DateInputsType = {
   checkIn: string;

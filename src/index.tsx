@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
+import "./styles/index.scss";
 import Bookings from "./pages/Bookings";
 import reportWebVitals from "./reportWebVitals";
 import BookingsContextProvider from "./contexts/BookingsContextProvider";

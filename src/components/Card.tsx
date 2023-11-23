@@ -1,18 +1,15 @@
+import { format } from "date-fns";
 import pencil from "../svgs/pencil.svg";
-import crossCircled from "../svgs/cross-circled.svg";
-import "./Card.scss";
-import useBookingsContext, { BookingType } from "../contexts/BookingsContext";
-import { cancelBooking, formatBookingDate } from "./Card.helper";
+import { BookingType } from "../contexts/BookingsContext";
+import CancelModal from "./CancelModal";
 
-type CardType = { index: number } & BookingType;
+export type CardType = { index: number } & BookingType;
 
-const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
-  const { setBookings } = useBookingsContext();
+const Card = (props: CardType) => {
+  const { city, checkIn, checkOut, status } = props;
   const isActive = status === "Confirmed";
 
-  const onCancel = () => {
-    setBookings((prev) => cancelBooking(prev, index));
-  };
+  const formatBookingDate = (date: string) => format(new Date(date), "LLL dd, yyyy");
 
   return (
     <div className="card">
@@ -30,9 +27,7 @@ const Card = ({ city, checkIn, checkOut, status, index }: CardType) => {
           <button type="button">
             <img src={pencil} alt="" /> Change dates
           </button>
-          <button type="button" onClick={onCancel}>
-            <img src={crossCircled} alt="" /> Cancel reservation
-          </button>
+          <CancelModal {...props} />
         </div>
       )}
     </div>

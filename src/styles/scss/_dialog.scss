@@ -1,0 +1,81 @@
+.dialog {
+  &__overlay {
+    background-color: rgba(black, 0.4);
+    position: fixed;
+    inset: 0;
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__content {
+    background-color: whitesmoke;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px 0 rgba(black, 0.6);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 450px;
+    max-height: 85vh;
+    padding: 24px;
+    animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 500;
+    color: brown;
+    font-size: 18px;
+  }
+
+  &__description {
+    margin: 10px 0 20px;
+    font-size: 16px;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-top: 25px;
+    justify-content: flex-end;
+    gap: 16px;
+
+    button {
+      &:first-child {
+        border: 1px solid brown;
+      }
+      &:nth-child(2) {
+        border: 1px solid darkolivegreen;
+      }
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    font-weight: 700;
+  }
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

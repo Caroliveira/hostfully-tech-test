@@ -1,6 +1,5 @@
 import Reserve from "../components/Reserve";
 import Card from "../components/Card";
-import "./Bookings.scss";
 import useBookingsContext from "../contexts/BookingsContext";
 
 const Bookings = () => {

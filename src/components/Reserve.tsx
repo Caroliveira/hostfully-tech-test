@@ -6,8 +6,7 @@ import {
   addNewBooking,
   getReservationData,
   validateBooking,
-} from "./Reserve.helper";
-import "./Reserve.scss";
+} from "../helpers/Reserve.helper";
 import DateInputs from "./DateInputs";
 import * as Toast from "@radix-ui/react-toast";
 

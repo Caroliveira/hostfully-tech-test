@@ -1,8 +1,4 @@
-import { format } from "date-fns-tz";
 import { BookingType } from "../contexts/BookingsContext";
-
-export const formatBookingDate = (date: string) =>
-  format(new Date(date), "LLL dd, yyyy");
 
 export const cancelBooking = (bookings: BookingType[], index: number) => {
   const auxBookings = [...bookings];
