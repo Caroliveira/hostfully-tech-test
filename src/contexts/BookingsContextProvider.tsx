@@ -17,7 +17,7 @@ const BookingsContextProvider = ({ children }: { children: ReactNode }) => {
     updatedBookings = bookings
   ) => {
     setToast(TOAST_DEFAULT);
-    const { valid, message } = validateBooking(booking, bookings);
+    const { valid, message } = validateBooking(booking, updatedBookings);
     setToast({ open: true, message, valid });
     if (valid) setBookings(addBooking(updatedBookings, booking));
     return valid;
