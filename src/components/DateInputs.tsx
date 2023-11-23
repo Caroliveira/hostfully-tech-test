@@ -7,16 +7,12 @@ const DateInputs = () => {
   const [checkOut, setCheckOut] = useState<string>("");
 
   const onCheckInChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    const newCheckInDate = evt.target.value
-    if(checkOut && isBefore(new Date(checkOut), new Date(newCheckInDate))) {
-      setCheckOut("")
+    const newCheckInDate = evt.target.value;
+    setCheckIn(newCheckInDate);
+    if (checkOut && isBefore(new Date(checkOut), new Date(newCheckInDate))) {
+      setCheckOut("");
     }
-    setCheckIn(newCheckInDate)
-  }
-
-  const onCheckOutChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    setCheckOut(evt.target.value)
-  }
+  };
 
   return (
     <>
@@ -38,7 +34,7 @@ const DateInputs = () => {
           type="date"
           name="checkOut"
           value={checkOut}
-          onChange={onCheckOutChange}
+          onChange={(evt) => setCheckOut(evt.target.value)}
           min={getMinCheckoutDate(checkIn)}
         />
       </label>

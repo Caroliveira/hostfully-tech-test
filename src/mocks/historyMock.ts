@@ -2,9 +2,15 @@ import { BookingType } from "../contexts/BookingsContext";
 
 const historyMock: BookingType[] = [
     {
+        city: 'Barcelona',
+        checkIn: '12-27-2023',
+        checkOut: '01-03-2024',
+        status: 'Confirmed'
+    },
+    {
         city: 'São Paulo',
-        checkIn: '05-05-2020',
-        checkOut: '06-06-2020',
+        checkIn: '05-23-2021',
+        checkOut: '06-06-2021',
         status: 'Canceled'
     },
     {
