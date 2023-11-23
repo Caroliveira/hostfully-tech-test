@@ -1,7 +1,7 @@
 import { format } from "date-fns";
-import pencil from "../svgs/pencil.svg";
 import { BookingType } from "../contexts/BookingsContext";
 import CancelModal from "./CancelModal";
+import EditModal from "./EditModal";
 
 export type CardType = { index: number } & BookingType;
 
@@ -24,9 +24,7 @@ const Card = (props: CardType) => {
       </div>
       {isActive && (
         <div className="card__buttons">
-          <button type="button">
-            <img src={pencil} alt="" /> Change dates
-          </button>
+          <EditModal {...props} />
           <CancelModal {...props} />
         </div>
       )}

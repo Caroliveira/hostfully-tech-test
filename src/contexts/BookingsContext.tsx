@@ -18,6 +18,10 @@ type BookingsContextType = {
   setBookings: React.Dispatch<React.SetStateAction<BookingType[]>>;
   toast: ToastType;
   setToast: React.Dispatch<React.SetStateAction<ToastType>>;
+  validateAndUpsertBooking: (
+    booking: BookingType,
+    updatedBookings?: BookingType[]
+  ) => boolean;
 };
 
 const defaultBookingsContext: BookingsContextType = {
@@ -25,6 +29,7 @@ const defaultBookingsContext: BookingsContextType = {
   setBookings: () => {},
   toast: TOAST_DEFAULT,
   setToast: () => {},
+  validateAndUpsertBooking: () => false,
 };
 
 export const BookingsContext = createContext<BookingsContextType>(

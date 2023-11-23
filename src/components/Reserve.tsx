@@ -1,32 +1,25 @@
 import { useState } from "react";
-import useBookingsContext, { TOAST_DEFAULT } from "../contexts/BookingsContext";
+import useBookingsContext from "../contexts/BookingsContext";
 import plusCircled from "../svgs/plus-circled.svg";
 import {
-  addNewBooking,
   getReservationData,
-  validateBooking,
 } from "../helpers/Reserve.helper";
 import DateInputs from "./DateInputs";
 
 const Reserve = () => {
-  const { bookings, setBookings, setToast } = useBookingsContext();
+  const { validateAndUpsertBooking } = useBookingsContext();
   const [checkIn, setCheckIn] = useState<string>("");
   const [checkOut, setCheckOut] = useState<string>("");
 
   const onSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    const newReservation = getReservationData(evt);
+    evt.preventDefault();
+    const newReservation = getReservationData(evt.currentTarget);
     if (!newReservation) return;
-
-    setToast(TOAST_DEFAULT);
-    const { valid, message } = validateBooking(newReservation, bookings);
-
-    if (valid) {
-      setBookings(addNewBooking(bookings, newReservation));
+    if (validateAndUpsertBooking(newReservation)) {
       setCheckIn("");
       setCheckOut("");
       evt.currentTarget.reset();
     }
-    setToast({ open: true, message, valid });
   };
 
   return (
