@@ -9,8 +9,8 @@ const historyMock: BookingType[] = [
     },
     {
         city: 'São Paulo',
-        checkIn: '05-23-2021',
-        checkOut: '06-06-2021',
+        checkIn: '05-23-2025',
+        checkOut: '06-06-2025',
         status: 'Canceled'
     },
     {

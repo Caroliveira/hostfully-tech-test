@@ -3,8 +3,8 @@ import useBookingsContext from "../contexts/BookingsContext";
 import plusCircled from "../svgs/plus-circled.svg";
 import {
   TOAST_DEFAULT,
+  addNewBooking,
   getReservationData,
-  sortBookings,
   validateBooking,
 } from "./Reserve.helper";
 import "./Reserve.scss";
@@ -29,7 +29,7 @@ const Reserve = () => {
     const { valid, message } = validateBooking(newReservation, bookings);
 
     if (valid) {
-      setBookings((prev) => sortBookings([...prev, newReservation]));
+      setBookings(addNewBooking(bookings, newReservation));
       evt.currentTarget.reset();
     }
 

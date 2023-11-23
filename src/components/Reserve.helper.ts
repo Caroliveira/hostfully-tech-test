@@ -21,12 +21,20 @@ export const getReservationData = (
   };
 };
 
-export const sortBookings = (bookings: BookingType[]) => {
-  return bookings.sort((a, b) => {
-    const dateA = new Date(a.checkIn);
-    const dateB = new Date(b.checkIn);
-    return dateB.getTime() - dateA.getTime();
+export const addNewBooking = (
+  bookings: BookingType[],
+  newBooking: BookingType
+) => {
+  const auxBookings = [...bookings];
+  const index = auxBookings.findIndex((booking) => {
+    return (
+      new Date(newBooking.checkIn) > new Date(booking.checkIn) ||
+      booking.status !== "Confirmed"
+    );
   });
+  if (index === -1) auxBookings.push(newBooking);
+  else auxBookings.splice(index, 0, newBooking);
+  return auxBookings;
 };
 
 const isDateOverlap = (
