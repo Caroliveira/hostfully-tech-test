@@ -14,6 +14,8 @@ import * as Toast from "@radix-ui/react-toast";
 const Reserve = () => {
   const { bookings, setBookings } = useBookingsContext();
   const [toast, setToast] = useState(TOAST_DEFAULT);
+  const [checkIn, setCheckIn] = useState<string>("");
+  const [checkOut, setCheckOut] = useState<string>("");
   const timerRef = useRef(0);
 
   useEffect(() => {
@@ -30,6 +32,8 @@ const Reserve = () => {
 
     if (valid) {
       setBookings(addNewBooking(bookings, newReservation));
+      setCheckIn("");
+      setCheckOut("");
       evt.currentTarget.reset();
     }
 
@@ -44,7 +48,13 @@ const Reserve = () => {
         Where are you going?
         <input required name="city" placeholder="Enter your destination city" />
       </label>
-      <DateInputs />
+
+      <DateInputs
+        checkIn={checkIn}
+        setCheckIn={setCheckIn}
+        checkOut={checkOut}
+        setCheckOut={setCheckOut}
+      />
 
       <Toast.Provider swipeDirection="right">
         <button type="submit" className="reserve__button">

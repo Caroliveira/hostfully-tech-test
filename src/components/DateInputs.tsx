@@ -1,11 +1,19 @@
-import { useState } from "react";
 import { format, isBefore } from "date-fns";
 import { getMinCheckoutDate } from "./DateInputs.helper";
 
-const DateInputs = () => {
-  const [checkIn, setCheckIn] = useState<string>("");
-  const [checkOut, setCheckOut] = useState<string>("");
+type DateInputsType = {
+  checkIn: string;
+  setCheckIn: (checkIn: string) => void;
+  checkOut: string;
+  setCheckOut: (checkOut: string) => void;
+};
 
+const DateInputs = ({
+  checkIn,
+  setCheckIn,
+  checkOut,
+  setCheckOut,
+}: DateInputsType) => {
   const onCheckInChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const newCheckInDate = evt.target.value;
     setCheckIn(newCheckInDate);
