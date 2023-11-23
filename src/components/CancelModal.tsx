@@ -9,11 +9,16 @@ type CancelModalType = {
 };
 
 const CancelModal = ({ index, city }: CancelModalType) => {
-  const { setBookings } = useBookingsContext();
+  const { setBookings, setToast } = useBookingsContext();
 
-    const onCancel = () => {
-      setBookings((prev) => cancelBooking(prev, index));
-    };
+  const onCancel = () => {
+    setBookings((prev) => cancelBooking(prev, index));
+    setToast({
+      open: true,
+      valid: true,
+      message: `Your booking at Hotel ${city} Inn has been successfully cancelled`,
+    });
+  };
 
   return (
     <Dialog.Root>
@@ -39,11 +44,10 @@ const CancelModal = ({ index, city }: CancelModalType) => {
             spot becomes available to other guests, and we cannot guarantee that
             the same room will be available in the future.
           </Dialog.Description>
-          <div className="dialog__buttons"
-          >
-          <Dialog.Close asChild>
-            <button onClick={onCancel}>Yes, I'm sure</button>
-          </Dialog.Close>
+          <div className="dialog__buttons">
+            <Dialog.Close asChild>
+              <button onClick={onCancel}>Yes, I'm sure</button>
+            </Dialog.Close>
             <Dialog.Close asChild>
               <button>No, never mind</button>
             </Dialog.Close>

@@ -1,6 +1,6 @@
 .dialog {
   &__overlay {
-    background-color: rgba(black, 0.4);
+    background-color: rgba(black, 0.6);
     position: fixed;
     inset: 0;
     animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -9,7 +9,7 @@
   &__content {
     background-color: whitesmoke;
     border-radius: 8px;
-    box-shadow: 0 2px 8px 0 rgba(black, 0.6);
+    box-shadow: 0 2px 8px 0 rgba(black, 0.7);
     position: fixed;
     top: 50%;
     left: 50%;
