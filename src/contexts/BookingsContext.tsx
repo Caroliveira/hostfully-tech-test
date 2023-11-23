@@ -9,14 +9,22 @@ export type BookingType = {
   status: BookingStatus;
 };
 
+export type ToastType = { open: boolean; message: string; valid: boolean };
+
+export const TOAST_DEFAULT = { open: false, message: "", valid: false };
+
 type BookingsContextType = {
   bookings: BookingType[];
-  setBookings: React.Dispatch<React.SetStateAction<BookingType[]>>
+  setBookings: React.Dispatch<React.SetStateAction<BookingType[]>>;
+  toast: ToastType;
+  setToast: React.Dispatch<React.SetStateAction<ToastType>>;
 };
 
-const defaultBookingsContext = {
+const defaultBookingsContext: BookingsContextType = {
   bookings: [],
   setBookings: () => {},
+  toast: TOAST_DEFAULT,
+  setToast: () => {},
 };
 
 export const BookingsContext = createContext<BookingsContextType>(

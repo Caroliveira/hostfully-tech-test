@@ -1,7 +1,5 @@
 import { BookingType } from "../contexts/BookingsContext";
 
-export const TOAST_DEFAULT = { open: false, message: "", valid: false };
-
 export const getReservationData = (
   evt: React.FormEvent<HTMLFormElement>
 ): BookingType | null => {
