@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# Hostfully Tech Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developed as a technical test for Hostfully. It showcases a React application for managing bookings, bootstrapped with Create React App and implemented using TypeScript, for a more structured and error-resistant codebase.
 
-## Available Scripts
+## Key Features
 
-In the project directory, you can run:
+- **CRUD Operations**: Manage bookings with options to create, read, update (reschedule), and delete (cancel) them.
+- **Global State Management**: Uses React Context for management of booking data across the application.
+- **Validation & User Experience**: Implements validations to prevent booking conflicts and ensure logical date ranges. Enhanced user experience through organized bookings, sorted first by status and then by check-in date.
+- **Responsive Design and accessibility**: Ensures compatibility with desktop and mobile devices. Uses Radix lirary to allow a more personalized visual experience while ensuring accessibility and usability.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+Ensure you have Node.js installed on your system.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
+Clone the repository and install dependencies:
 
-### `npm test`
+```bash
+git clone https://github.com/Caroliveira/hostfully-tech-test.git
+cd hostfully-tech-test
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running the Application
 
-### `npm run build`
+**`npm start`**
+Runs the app in development mode. Open http://localhost:3000 to view it in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
