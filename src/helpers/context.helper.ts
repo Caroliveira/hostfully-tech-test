@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { BookingType } from "../contexts/BookingsContext";
 
 const isDateOverlap = (
@@ -6,10 +7,10 @@ const isDateOverlap = (
   existingCheckIn: string,
   existingCheckOut: string
 ) => {
-  const newInDate = new Date(newCheckIn);
-  const newOutDate = new Date(newCheckOut);
-  const existingInDate = new Date(existingCheckIn);
-  const existingOutDate = new Date(existingCheckOut);
+  const newInDate = parseISO(newCheckIn);
+  const newOutDate = parseISO(newCheckOut);
+  const existingInDate = parseISO(existingCheckIn);
+  const existingOutDate = parseISO(existingCheckOut);
   return newInDate < existingOutDate && newOutDate > existingInDate;
 };
 
@@ -36,7 +37,7 @@ export const addBooking = (
   const auxBookings = [...bookings];
   const index = auxBookings.findIndex((booking) => {
     return (
-      new Date(newBooking.checkIn) > new Date(booking.checkIn) ||
+      parseISO(newBooking.checkIn) > parseISO(booking.checkIn) ||
       booking.status !== "Confirmed"
     );
   });

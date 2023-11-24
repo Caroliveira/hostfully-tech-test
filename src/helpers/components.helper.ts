@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { BookingType } from "../contexts/BookingsContext";
 
 export const cancelBooking = (bookings: BookingType[], index: number) => {
@@ -9,7 +9,7 @@ export const cancelBooking = (bookings: BookingType[], index: number) => {
   let newIndex = -1;
   for (let i = auxBookings.length - 1; i >= 0; i--) {
     if (
-      new Date(canceledBooking.checkIn) <= new Date(auxBookings[i].checkIn) ||
+      parseISO(canceledBooking.checkIn) <= parseISO(auxBookings[i].checkIn) ||
       auxBookings[i].status === "Confirmed"
     ) {
       newIndex = i + 1;
@@ -27,11 +27,7 @@ export const cancelBooking = (bookings: BookingType[], index: number) => {
 };
 
 export const getMinCheckoutDate = (checkIn?: string) => {
-  let date = new Date();
-  if (checkIn) {
-    const [year, month, day] = checkIn.split("-").map(Number);
-    date = new Date(year, month - 1, day);
-  }
+  let date = checkIn ? parseISO(checkIn) : new Date();
   date.setDate(date.getDate() + 1);
   return format(date, "yyyy-MM-dd");
 };

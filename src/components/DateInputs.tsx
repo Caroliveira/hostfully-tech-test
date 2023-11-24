@@ -1,4 +1,4 @@
-import { format, isBefore } from "date-fns";
+import { format, isBefore, parseISO } from "date-fns";
 import { getMinCheckoutDate } from "../helpers/components.helper";
 
 type DateInputsType = {
@@ -17,7 +17,7 @@ const DateInputs = ({
   const onCheckInChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const newCheckInDate = evt.target.value;
     setCheckIn(newCheckInDate);
-    if (checkOut && isBefore(new Date(checkOut), new Date(newCheckInDate))) {
+    if (checkOut && isBefore(parseISO(checkOut), parseISO(newCheckInDate))) {
       setCheckOut("");
     }
   };

@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { BookingType } from "../contexts/BookingsContext";
 import CancelModal from "./CancelModal";
 import EditModal from "./EditModal";
@@ -9,7 +9,7 @@ const Card = (props: CardType) => {
   const { city, checkIn, checkOut, status } = props;
   const isActive = status === "Confirmed";
 
-  const formatBookingDate = (date: string) => format(new Date(date), "LLL dd, yyyy");
+  const formatBookingDate = (date: string) => format(parseISO(date), "LLL dd, yyyy");
 
   return (
     <div className="card">
